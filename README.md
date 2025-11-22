@@ -1,48 +1,52 @@
-# Flutter QRCode Scanner APP
+A Flutter implementation for barcode and QR code scanning functionality.
 
-![Image](fa.png)
+**Technical Capabilities**
+- 2D barcode scanning
+- QR code recognition
+- Flashlight control during scanning
+- Permission management
+- Multi-library barcode support
 
-### Show some :heart: and star the repo to support the project
+**Implementation Guide**
 
-<img src="https://thumbs.gfycat.com/BountifulIdenticalBumblebee-size_restricted.gif">
+**Flutter Integration**
+Add the following dependency to your `pubspec.yaml` file:
 
-A new Flutter project.
+```yaml
+dependencies:
+  barcode_scan: "^1.0.0"
+```
 
-### Features
+**Android Configuration**
+Required modifications for Android compatibility:
 
-* [x] Scan 2D barcodes
-* [x] Scan QR codes
-* [x] Control the flash while scanning
-* [x] Permission handling
-* [ ] Support multiple barcode libraries
+1. Add camera permission to `AndroidManifest.xml`:
+```xml
+<uses-permission android:name="android.permission.CAMERA" />
+```
 
-## Getting Started
+2. Include Barcode activity in `AndroidManifest.xml`:
+```xml
+<activity android:name="com.apptreesoftware.barcodescan.BarcodeScannerActivity"/>
+```
 
-### Flutter Project
+**iOS Configuration**
+Required modification for iOS compatibility:
 
-* Add this to your package's pubspec.yaml file:
+Add camera usage description to `Info.plist`:
+```xml
+<key>NSCameraUsageDescription</key>
+<string>Camera permission is required for barcode scanning.</string>
+```
 
-  `dependencies: barcode_scan: "^1.0.0"`
+**Platform Support**
+- Android
+- iOS
 
-### Android
+**Project Structure**
+- `/android` - Android-specific implementation
+- `/ios` - iOS-specific implementation
+- `/lib` - Core application logic
 
-For Android, you must do the following before you can use the plugin:
-
-* Add the camera permission to your AndroidManifest.xml
-
-  `<uses-permission android:name="android.permission.CAMERA" />`
-
-* Add the Barcode activity to your AndroidManifest.xml
-  `<activity android:name="com.apptreesoftware.barcodescan.BarcodeScannerActivity"/>`
-
-### iOS
-
-To use on iOS, you must add the the camera usage description to your Info.plist
-
-    <key>NSCameraUsageDescription</key>
-    <string>Camera permission is required for barcode scanning.</string>
-
-## Getting Started with Flutter
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+**Development Notes**
+This project provides a cross-platform solution for barcode and QR code scanning operations, handling platform-specific permissions and hardware access requirements.
